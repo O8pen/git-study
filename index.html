@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Git Study</title>
+    
+  <link rel="stylesheet" crossorigin href="./index-gc20sv6q.css"><script type="module" crossorigin src="./index-jrpbday4.js"></script></head>
+  <body>
+    <header>
+      <h1>Git Study</h1>
+      <select id="project" aria-label="Project"></select>
+      <span id="pattern-title" class="pill"></span>
+      <p id="pattern-summary"></p>
+      <button id="signout" hidden>Sign out</button>
+    </header>
+    <main>
+      <div id="stage-wrap">
+        <canvas id="stage"></canvas>
+        <div id="tip" hidden></div>
+        <div id="loading" hidden>Loading…</div>
+      </div>
+      <aside>
+        <section class="now">
+          <div class="now-top">
+            <span id="now-kind" class="chip"></span>
+            <span id="now-real" class="tag"></span>
+          </div>
+          <p id="now-actor"></p>
+          <p id="now-text"></p>
+          <code id="now-command"></code>
+        </section>
+        <section class="stats">
+          <div><b id="stat-commits">0</b><span>commits on main</span></div>
+          <div><b id="stat-open">0</b><span>open PRs / patches</span></div>
+          <div><b id="stat-people">0</b><span>people</span></div>
+          <div><b id="stat-active">0</b><span>working now</span></div>
+        </section>
+        <section class="log">
+          <h2>Events</h2>
+          <ol id="log"></ol>
+        </section>
+        <section class="legend">
+          <h2>Legend</h2>
+          <dl>
+            <dt>work·w</dt><dd>Worktree: the folder where files are edited.</dd>
+            <dt>stage·s</dt><dd>Changes selected with <code>git add</code> for the next commit.</dd>
+            <dt>local·l</dt><dd>Committed but not yet pushed from the computer.</dd>
+            <dt>fork</dt><dd>A personal copy of the project on GitHub.</dd>
+            <dt>+1wt</dt><dd>An extra worktree of the same repository.</dd>
+          </dl>
+          <ul id="colors"></ul>
+        </section>
+      </aside>
+    </main>
+    <footer>
+      <div class="controls">
+        <button id="prev" title="Previous event (←)" aria-label="Previous event">⏮</button>
+        <button id="play" title="Play / pause (Space)" aria-label="Play">▶</button>
+        <button id="next" title="Next event (→)" aria-label="Next event">⏭</button>
+        <label>Speed
+          <select id="speed">
+            <option value="0.5">0.5x</option>
+            <option value="1">1x</option>
+            <option value="2" selected>2x</option>
+            <option value="4">4x</option>
+            <option value="8">8x</option>
+            <option value="16">16x</option>
+            <option value="32">32x</option>
+            <option value="64">64x</option>
+            <option value="128">128x</option>
+            <option value="256">256x</option>
+          </select>
+        </label>
+        <span id="date"></span>
+        <span id="progress"></span>
+      </div>
+      <canvas id="timeline"></canvas>
+    </footer>
+    <div id="signin" hidden>
+      <form id="signin-form">
+        <h2>Git Study</h2>
+        <p>This site is private. Sign in with your GitHub account.</p>
+        <ol>
+          <li><a id="signin-link" target="_blank" rel="noopener">Open the GitHub access page</a> and sign in if asked.</li>
+          <li>Under Repository access, choose <b>Only select repositories</b>, pick <b>git-study-data</b>, then press <b>Generate token</b>.</li>
+          <li>Paste the token here. You only do this once in this browser.</li>
+        </ol>
+        <input id="signin-token" type="password" autocomplete="off" placeholder="github_pat_…" aria-label="GitHub access token" required />
+        <button type="submit">Sign in</button>
+        <p id="signin-error" role="alert"></p>
+      </form>
+    </div>
+    
+  </body>
+</html>
